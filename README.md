@@ -2,9 +2,7 @@
 
 Native Rust desktop application for configuring PCS Electronics STMAX transmitters over a serial port.
 
-> Notice: This project was built with GPT-5.4.
->
-> Linux and Windows versions are available from the latest release:
+> **Ready-to-use Linux and Windows binary versions are available from the latest release:**
 > https://github.com/pcs-electronics/stmax-gui/releases/latest
 
 ![STMAX connection diagram](images/connection.png)
@@ -145,3 +143,5 @@ cargo check --target x86_64-pc-windows-gnu
 ## License
 
 MIT, Copyright (c) PCS Electronics.
+
+Notice: This project was built with GPT-5.4.
