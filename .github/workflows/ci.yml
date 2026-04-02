@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  linux:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt
+          targets: x86_64-pc-windows-gnu
+
+      - name: Format check
+        run: cargo fmt --check
+
+      - name: Cargo check
+        run: cargo check --locked
+
+      - name: Cargo test
+        run: cargo test --locked
+
+      - name: Windows GNU cross-check
+        run: cargo check --locked --target x86_64-pc-windows-gnu
+
+  windows:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Cargo check
+        run: cargo check --locked
+
+      - name: Cargo test
+        run: cargo test --locked

@@ -1,0 +1,23 @@
+[package]
+name = "stmax_gui"
+version = "0.1.0"
+edition = "2021"
+build = "build.rs"
+authors = ["PCS Electronics"]
+description = "Native tokio + egui desktop application for configuring PCS Electronics STMAX transmitters over a serial port"
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/pcs-electronics/stmax-gui"
+homepage = "https://github.com/pcs-electronics/stmax-gui"
+keywords = ["stmax", "serial", "egui", "tokio", "transmitter"]
+
+[[bin]]
+name = "stmax-gui"
+path = "src/main.rs"
+
+[dependencies]
+eframe = { version = "0.33.3", features = ["wgpu"] }
+egui = "0.33.3"
+tokio = { version = "1.50.0", features = ["io-util", "macros", "rt-multi-thread", "sync", "time"] }
+tokio-serial = "5.4.5"
+
